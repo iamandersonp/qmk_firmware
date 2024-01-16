@@ -310,12 +310,9 @@ if (current_wpm > 0) {
     /* wpm counter */
     oled_set_cursor(0, 14);
     oled_write(get_u8_str(get_current_wpm(), '0'), false);
-
     oled_set_cursor(0, 15);
     oled_write(" wpm", false);
-
- /* this fixes the screen on and off bug */
-
+    /* this fixes the screen on and off bug */
     } else if(timer_elapsed32(anim_sleep) > OLED_TIMEOUT) {
         /* clear */
         oled_set_cursor(0,0);
@@ -429,7 +426,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             isBarking = record->event.pressed;
             break;
         /* KEYBOARD PET STATUS END */
-}
-
-return true;
+    }
+    return true;
 }
